@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The List</title>
+  <title>the list</title>
   <link rel="stylesheet" href="index.css">
   <script src="jq.js"></script>
+  <script src="papaparse.min.js"></script>
 </head>
 <body onload="loadGames()">
-  <h1 class="title">The List</h1>
+  <h1 class="title">the list</h1>
 
   <div id="searchBar">
     <input onfocus="srcFocus()"autocomplete="off" id="search" onkeyup="searching()" value="Search"></input>
@@ -16,6 +17,10 @@
 
     </ul>
 
+    <div id="subtext">
+      <p>easy .csv handling through <a href="https://www.papaparse.com/">PapaParse</a>. Thanks Papa.</p>
+      <p>any rating complaints can be sent to and be ignored by #Melbø9141 on Discord.</p>
+    </div>
 <script>
 function srcFocus(){
   var search = document.getElementById("search");
@@ -38,13 +43,25 @@ function searching() {
   }
 }
 function loadGames(){
+  var link = "https://raw.githubusercontent.com/m-e-l-b-o/the-list/master/GAMES.csv";
+  Papa.parse(link, {
+    download: true,
+    complete: function(results){
+      for(n = 2; n < results.data.length;n++){
+        console.log(results.data[n][1]);
+
+        var node = document.createElement("LI");
+        var a = document.createElement("A");
+        node.appendChild(a);
+        var game = document.createTextNode(results.data[n][1]);
+        a.appendChild(game);
+        document.getElementById("list").appendChild(node);
+      }
+    }
+  });
+
   for(n = 0;n < 300;n++){
-    var node = document.createElement("LI");
-    var a = document.createElement("A");
-    node.appendChild(a);
-    var game = document.createTextNode("Video Game " + n);
-    a.appendChild(game);
-    document.getElementById("list").appendChild(node);
+
   }
 }
 </script>
