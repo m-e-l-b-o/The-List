@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The List</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="jq.js"></script>
+</head>
+<body onload="loadGames()">
+  <h1 class="title">The List</h1>
+
+  <div id="searchBar">
+    <input onfocus="srcFocus()"autocomplete="off" id="search" onkeyup="searching()" value="Search"></input>
+  </div>
+
+    <ul id="list">
+
+    </ul>
+
+<script>
+function srcFocus(){
+  var search = document.getElementById("search");
+  if(search.value=='Search'){search.value=''};
+}
+function searching() {
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('search');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("list");
+  li = ul.getElementsByTagName('li');
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+function loadGames(){
+  for(n = 0;n < 300;n++){
+    var node = document.createElement("LI");
+    var a = document.createElement("A");
+    node.appendChild(a);
+    var game = document.createTextNode("Video Game " + n);
+    a.appendChild(game);
+    document.getElementById("list").appendChild(node);
+  }
+}
+</script>
+</body>
+</html>
