@@ -1,49 +1,36 @@
 body{
-  font-family:Arial, Helvetica, sans-serif;
-  color:#e5e5e5;
-  background-color: black;
+  font-family: "Libre Franklin","Helvetica Neue",helvetica,arial,sans-serif;
+  font-size: 100%;
+  color: rgb(217, 217, 217);
+  background-color: rgb(30, 30, 30);
+  line-height: 1.63;
+  margin:0;
 }
-.title
-{
-  text-align: center;
-  font-size: 70px;
-}
-#searchBar{
-  text-align:center;
+#center{
+  max-width:48em;
+  margin:20px auto;
+  padding:0 1.5rem;
+  letter-spacing: 0.04em;
+  line-height: 1.8em;
 }
 input{
-  background-color:black;
+  background-color: rgb(26, 26, 26);
   border: none;
-  border-bottom-style: solid;
-  border-color: #1e1e1e;
   color: #e5e5e5;
   font-size:20px;
+}
+#separator{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  border-top: 1px dashed rgb(165, 165, 165);
+  border-bottom: 0px dashed rgba(248, 231, 231, 0.26);
 }
 textarea:focus, input:focus{
     outline: none;
 }
-ul {
-  margin:0px auto;
-  list-style-type: none;
-  width: 20%;
-  padding-left: 0px;
-  text-align:center;
-  font-size: 18px;
-}
-li{
-  border-radius: 10px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-}
-li:hover{
-  background-color: #191919;
+td{
+  padding-left: 10px;
 }
 #subtext{
-  color: #191919;
-  margin:auto;
-  width: 60%;
-  text-align: center;
-}
-#subtext a{
-  color:#262626;
+  color: rgb(120, 120, 120);
 }
