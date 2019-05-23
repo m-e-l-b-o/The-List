@@ -1,10 +1,8 @@
-Rating,Game,Platform,First Playthrough,Emulator
+﻿Rating,Game,Platform,First Playthrough,Emulator
 ,,,,
-10,Dark Souls III,PC,,No
 10,Hyper Light Drifter,PC,,No
-10,Quake ,PC,,No
+10,Quake,PC,,No
 10,The Elder Scrolls IV: Oblivion,PC,,No
-10,The Witcher 3,PC,54h,No
 9,Bloodborne,PS4,16h54m19s,No
 9,Bloodstained: Curse of the Moon,PC,,No
 9,BUTCHER,PC,,No
@@ -12,6 +10,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 9,Dante's Inferno,PS3,6h52m35s,No
 9,Dark Souls,PC,,No
 9,Dark Souls II: SOTFS,PC,,No
+9,Dark Souls III,PC,,No
 9,Demon's Souls,PS3,14h11m,No
 9,Dragon Age: Origins,PC,,No
 9,Hollow Knight,PC,,No
@@ -21,6 +20,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 9,Shadow of the Colossus,PS3,7h58m19s,No
 9,Shovel Knight,PC,,No
 9,The Legend of Zelda: The Wind Waker,GCN,25h11m58s,Yes
+9,The Witcher 3,PC,54h,No
 9,Völgarr The Viking,PC,,No
 8,A Hat in Time,PC,5h44m29s,No
 8,Ape Escape,PSX,6h9m9s,Yes
@@ -32,19 +32,20 @@ Rating,Game,Platform,First Playthrough,Emulator
 8,Call of Juarez,PC,6h27m33s,No
 8,Castle Crashers,PC,3h28m1s,No
 8,Castlevania,NES,,Yes
+8,Castlevania II: Belmont's Revenge,GB/GBC,4h41s,Yes
 8,Castlevania: Aria of Sorrow,GBA,6h36m37s,Yes
 8,Celeste,PC,6h1m7s,No
 8,Chip 'n Dale Rescue Rangers,NES,,Yes
 8,Crash Team Racing,PSX,2h33m47s,Yes
 8,Crysis,PC,,No
-8,Daikatana (1.3 No Sidekick),PC,10h49m36s,No
+8,Daikatana,PC,10h49m36s,No
 8,Dead or Alive 3,XBOX,,No
 8,Dead Space 2,PC,6h32m17s,No
 8,Dead Space 3,PC,7h38m12s,No
 8,Death's Gambit,PC,8h54m49s,No
 8,Devil May Cry 2,PS3,3h12m18s ,No
 8,Dishonored,PC,,No
-8,Divinity Original Sin 2,PC,40h54m31s,No
+8,Divinity: Original Sin 2,PC,40h54m31s,No
 8,Divinity: Original Sin,PC,47h27m,No
 8,DOOM (2016),PC,6h1m42s,No
 8,Doom II,PC,6h17m1s,No
@@ -62,7 +63,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 8,God of War: Ghost of Sparta,PSP,4h55m9s,Yes
 8,Grand Theft Auto IV,XBOX360,,No
 8,Grand Theft Auto V ,XBOX360,,No
-8,Half-Life: Opposing Force,PC,2h43m5s,No
+7,Half-Life: Opposing Force,PC,2h43m5s,No
 8,Halo 2,XBOX,,No
 8,Halo 3,XBOX360,,No
 8,Halo: Combat Evolved,XBOX,,No
@@ -95,9 +96,10 @@ Rating,Game,Platform,First Playthrough,Emulator
 8,METAL GEAR RISING: REVENGEANCE,PC,8h51m13s,No
 8,Metro 2033 (Redux),PC,6h6m52s,No
 8,Metroid: Zero Mission,GBA,4h47m43s,Yes
+8,Minit,PC,2h5m20s,No
 8,Momodora: Reverie Under the Moonlight,PC,3h57m53s,No
 8,Nier: Automata,PC,22h59m48s,No
-8,Nioh: Complete Edition,PC,28h27m15s,No
+8,Nioh,PC,28h27m15s,No
 8,Odallus: The Dark Call,PC,5h2m35s,No
 8,Outlast II,PC,5h5m33s,No
 8,Portal 2: Coop,PC,,No
@@ -120,8 +122,10 @@ Rating,Game,Platform,First Playthrough,Emulator
 8,Super Metroid,SNES,5h49m,Yes
 8,The Elder Scrolls III: Morrowind,PC,,No
 8,The End Is Nigh,PC,10h18m1s,No
+8,The Last of Us Remastered,PS4,10h25m9s,No
 8,The Legend of Zelda: Ocarina of Time,N64,,Yes
 8,The Legend of Zelda: Twillight Princess,GCN,22h50m,Yes
+8,The Messenger,PC,9h10m34s,No
 8,The Punisher,PC,6h52m46s,No
 8,The Surge,PC,15h36m35s,No
 8,The Witcher,PC,23h,No
@@ -136,7 +140,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 8,Vanquish,PC,4h53m49s,No
 8,Wolfenstein: The Old Blood,PC,4h13m16s,No
 7,A Story About My Uncle,PC,1h41m52s,No
-7,Amnesia: A Machine for Pigs,PC,3h9s36s,No
+7,Amnesia: A Machine for Pigs,PC,3h9m36s,No
 7,Aragami,PC,3h17m5s,No
 7,Arvoesine,PC,,No
 7,Assassin's Creed 2,XBOX360,,No
@@ -147,6 +151,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 7,"Bioshock 2 ""Remastered""",PC,5h27m55s,No
 7,Bioshock: Infinite,PC,5h15m26s,No
 7,Bully: Scholarship Edition,PC,12h43m6s,No
+7,Call of Cthulhu: Dark Corners of the Earth,PC,12h49m10s,No
 7,Capsized,PC,2h46m22s,No
 7,Castlevania: Circle of the Moon,GBA,7h24m38s,Yes
 7,Castlevania: Dracula X,SNES,,Yes
@@ -180,6 +185,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 7,Far Cry 2,PC,13h10m28s,No
 7,Far Cry 3: Blood Dragon,PC,2h40m7s,No
 7,Felix the Cat,NES,1h14m1s,Yes
+7,Firewatch,PC,3h20m22s,No
 7,Glover,N64,5h47s27s,Yes
 7,Grand Theft Auto: Vice City,PC,13h37m22s,No
 7,Grim Dawn,PC,14h38m3s,No
@@ -198,6 +204,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 7,Judge Dredd: Dredd vs Death,PC,2h35m47s,No
 7,Just Cause 3,PC,10h57m48s,No
 7,Killer is Dead,PC,5h59m22s,No
+7,Kirby's Dream Land,GB/GBC,33m3s,Yes
 7,klocki,PC,1h25m,No
 7,Legend of Kay Anniversary,PC,10h12m,No
 7,LEGO Star Wars: The Original Trilogy,PSP,,No
@@ -217,6 +224,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 7,Nitronic Rush,PC,,No
 7,Nuclear Throne,PC,,No
 7,Oddworld: New 'n' Tasty,PC,7h31m57s,No
+7,Out There Somewhere,PC,1h12m21s,No
 7,Overlord + Raising Hell DLC,PC,21h48m,No
 7,Painkiller: Hell & Damnation,PC,3h3m38s,No
 7,Pankapu,PC,7h51m17s,No
@@ -225,6 +233,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 7,Quake II,PC,4h46m41,No
 7,RAGE,PC,6h46m10s,No
 7,Rayman 2: The Great Escape,PSX,4h57m3s,Yes
+7,Rayman 3: Hoodlum Havoc,PC,6h18m,No
 7,Rayman Origins,PC,6h15m45s,No
 7,Red Faction: Guerilla,PC,9h5m5s,No
 7,Redeemer,PC,4h47m55s,No
@@ -239,8 +248,10 @@ Rating,Game,Platform,First Playthrough,Emulator
 7,Singularity,PC,4h41m9s,No
 7,Sleeping Dogs,PC,15h30s,No
 7,Sniper Elite,PC,7h10m9s,No
+7,Sniper Elite 3,PC,5h53m5s,No
 7,Song of the Deep,PC,6h8m46s,No
 7,South Park: The Stick of Truth,PC,11h24m,No
+7,Sphinx and the Cursed Mummy,PC,14h15m33s,No
 7,Spyro - A Hero's Tail,GCN,,Yes
 7,Spyro The Dragon,PSX,3h15m14s,Yes
 7,Streets of Rage 2,ARCADE,,Yes
@@ -258,6 +269,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 7,Trine,PC,3h6m50s,No
 7,Trine 2,PC,3h24m13s,No
 7,Unreal Gold,PC,6h4m7s,No
+7,VVVVVV,PC,2h19m19s,No
 7,We Were Here,PC,,No
 7,Wolfenstein: The New Order,PC,6h55m2s,No
 7,Worms 4: Mayhem,PC,4h32m9s,No
@@ -276,6 +288,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 6,Crash Bandicoot 2: Cortex Strikes Back,PSX,3h27m2s,Yes
 6,Crash Bandicoot: The Wrath of Cortex,GCN,4h3m10s,Yes
 6,Donkey Kong: Country,SNES,,Yes
+6,Duke Nukem Forever,PC,5h13m40s,No
 6,F.E.A.R 2,PC,,No
 6,Fallout 4,PC,49h,No
 6,Far Cry,PC,8h,No
@@ -312,7 +325,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 6,Ratchet & Clank: Going Commando (HD),PS3,9h36s54s,No
 6,Risen 3 - Titan Lords,PC,16h16m24s,No
 6,Saints Row 2,PC,17h,No
-6,Seasons after Fall,PC,5h5m2s,No
+6,Seasons after Fall,PC,5h5m,No
 6,Serious Sam 3: BFE,PC,7h1m35s,No
 6,Serious Sam: The First Encounter,PC,7h,No
 6,Shadow the Hedgehog,PC,2h28m15s,No
@@ -328,6 +341,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 6,Transistor,PC,3h34m18s,No
 6,Trine 3: The Artifacts of Power,PC,3h23m20s,No
 6,Ty the Tasmanian Tiger,PC,6h27m10s,No
+6,Tyranny,PC,18h25m,No
 6,Undertale,PC,7h29m,No
 5,Aladdin,SNES,,Yes
 5,Brütal Legend,PC,,No
@@ -335,14 +349,16 @@ Rating,Game,Platform,First Playthrough,Emulator
 5,Castlevania III: Dracula's Curse,NES,,Yes
 5,Chameleon Twist,N64,1h22m34s,Yes
 5,Dropsy,PC,3h24m22s,No
-5,Duke Nukem Forever,PC,5h13m40s,No
 5,Fable: The Lost Chapters,PC,10h48m,No
 5,Giana Sisters: Twisted Dreams,PC,4h23m31s,No
 5,GUN,PC,3h12m32s,No
 5,Homefront,PC,3h9m20s,No
 5,Injustice: Gods Among Us,PC,2h54m,No
+5,Lawn Mower,NES,,Yes
+5,Life is Strange,PC,11h4m8s,No
 5,Marlow Briggs and the Mask of Death,PC,5h54m,No
 5,Ori and the Blind Forest,PC,6h54m,No
+5,Pacify,PC,49m,No
 5,Prototype,PS3,8h37m14s,No
 5,Refunct,PC,,No
 5,Ryse: Son of Rome,PC,5h18m,No
@@ -352,7 +368,7 @@ Rating,Game,Platform,First Playthrough,Emulator
 5,Shrek Super Slam,GCN,28m5s,Yes
 5,Spec Ops: The Line,PC,4h11m47s,No
 5,Thief (2014),PC,5h55m43s,No
-5,Two Worlds: Epic Edition,PC,7h48m,No
+5,Two Worlds,PC,7h48m,No
 5,White Knight Chronicles,PS3,17h42m33s,No
 5,Xeodrifter,PC,3h4m1s,No
 4,Alien VS Predator,SNES,,Yes
@@ -367,3 +383,11 @@ Rating,Game,Platform,First Playthrough,Emulator
 3,Shrek the Third,PSP,,Yes
 2,Shrek 2,GCN,,Yes
 2,Super Troll Islands,SNES,,Yes
+8,Devil May Cry 3,PS3,8h59m56s,No
+9,Sekiro,PC,25h10m43s,No
+8,RiME,PC,3h57m20s,No
+8,Katana ZERO,PC,4h28m23s,No
+8,Devil May Cry 4,7h31m24s,No
+7,Risen 2,17h17m17s,No
+7,Super Skelemania,1h5m40s,No
+8,Blood,7h50m10s,No
