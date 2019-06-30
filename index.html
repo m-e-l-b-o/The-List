@@ -10,7 +10,9 @@
   <div id="center">
   <h1 class="title"></h1>
 
-  <input onfocus="srcFocus()"autocomplete="off" id="search" onkeyup="searching()" value="Search"></input>
+  <input onfocus="srcFocus()" onfocusout="srcFocusOut()"autocomplete="off" id="search" onkeyup="searching()" value="Search"></input>
+
+  <button onclick="sortABC()">A->Z</button>
 
   <div id="separator">
   </div>
@@ -25,9 +27,14 @@
   </div>
 
 <script>
+//You're not supposed to be in here...
 function srcFocus(){
   var search = document.getElementById("search");
   if(search.value=='Search'){search.value=''};
+}
+function srcFocusOut(){
+  var search = document.getElementById("search");
+  if(search.value==''){search.value='Search'};
 }
 function searching() {
   var input, filter, ul, li, a, i, txtValue;
@@ -84,6 +91,22 @@ function loadGames(){
     }
   });
 }
+//I'm not going to warn you again. Get out, or I'll call the guards!
+function sortABC(){ //brute force (pretty slow)
+  var table, swapping
+  table = document.getElementById("table");
+  swapping = true
+  while(swapping){
+	swapping = false
+	for(i=0;i < (table.rows.length - 1);i++){
+	  if(table.rows[i].cells[0].innerHTML.toLowerCase().replace("/[^\w\s]/gi", '') >= table.rows[i+1].cells[0].innerHTML.toLowerCase().replace("/[^\w\s]/gi", '')){
+		table.rows[i].parentNode.insertBefore(table.rows[i + 1], table.rows[i]);
+		swapping = true;
+	  }
+	}
+  }
+}
+
 </script>
 </body>
 </html>
