@@ -3,10 +3,10 @@
 10,Hyper Light Drifter,PC,
 10,Quake,PC,
 10,The Elder Scrolls IV: Oblivion,PC,
-9,Bloodborne,PS4,16h54m19s
+9,Bloodborne,PS4,16h54m19s,
 9,Bloodstained: Curse of the Moon,PC,
 9,BUTCHER,PC,
-9,Cuphead,PC,8h49m8s
+9,Cuphead,PC,8h49m8s,
 9,Dante's Inferno,PS3,6h52m35s
 9,Dark Souls,PC,
 9,Dark Souls II: SOTFS,PC,
@@ -25,29 +25,29 @@
 8,A Hat in Time,PC,5h44m29s
 8,Ape Escape,PSX,6h9m9s
 8,Axiom Verge,PC,9h31s
-8,Baldur's Gate II: Shadows of Amn (EE),PC,34h36m31s
-8,Baldur's Gate: Enhanced Edition,PC,22h3m37s
+8,Baldur's Gate II,PC,34h36m31s
+8,Baldur's Gate,PC,22h3m37s
 8,Bayonetta,PC,9h24m1s
 8,Beyond Good & Evil,PC,8h38m36s
 8,Call of Juarez,PC,6h27m33s
-8,Castle Crashers,PC,3h28m1s
+7,Castle Crashers,PC,3h28m1s
 8,Castlevania,NES,
 8,Castlevania II: Belmont's Revenge,GB/GBC,4h41s
 8,Castlevania: Aria of Sorrow,GBA,6h36m37s
-8,Celeste,PC,6h1m7s
-8,Chip 'n Dale Rescue Rangers,NES,
+8,Celeste,PC,6h1m7s,
+7,Chip 'n Dale Rescue Rangers,NES,
 8,Crash Team Racing,PSX,2h33m47s
 8,Crysis,PC,
 8,Daikatana,PC,10h49m36s
 8,Dead or Alive 3,XBOX,
 8,Dead Space 2,PC,6h32m17s
 8,Dead Space 3,PC,7h38m12s
-8,Death's Gambit,PC,8h54m49s
-8,Devil May Cry 2,PS3,3h12m18s 
+7,Death's Gambit,PC,8h54m49s
+8,Devil May Cry 2,PS3,3h12m18s
 8,Dishonored,PC,
 8,Divinity: Original Sin 2,PC,40h54m31s
 8,Divinity: Original Sin,PC,47h27m
-8,DOOM (2016),PC,6h1m42s
+8,Doom 4,PC,6h1m42s
 8,Doom II,PC,6h17m1s
 8,Dragon Age II,PC,19h36m6s
 8,DUSK,PC,5h31m48s
@@ -77,7 +77,7 @@
 8,Kingdom Hearts,PS2,21h47m56s
 8,Kingdom Hearts II,PS2,25h34m28s
 8,L.A Noire,PC,16h59m31s
-8,LEGO Star Wars 2: The Original Trilogy,NDS,
+7,LEGO Star Wars 2: The Original Trilogy,NDS,
 8,Limbo,PC,3h48m
 8,Little Nightmares,PC,2h30m48s
 8,Lovely Planet,PC,
@@ -94,9 +94,9 @@
 8,Mega Man X,SNES,
 8,Mega Man X2,SNES,9h6m40s
 8,METAL GEAR RISING: REVENGEANCE,PC,8h51m13s
-8,Metro 2033 (Redux),PC,6h6m52s
+8,Metro 2033,PC,6h6m52s
 8,Metroid: Zero Mission,GBA,4h47m43s
-8,Minit,PC,2h5m20s
+7,Minit,PC,2h5m20s
 8,Momodora: Reverie Under the Moonlight,PC,3h57m53s
 8,Nier: Automata,PC,22h59m48s
 8,Nioh,PC,28h27m15s
@@ -117,7 +117,7 @@
 8,Sundered,PC,14h11m48s
 8,Super Castlevania IV,SNES,4h17m32s
 8,Super Mario 64,N64,5h49m21s
-8,Super Mario Advance 2,GBA,19m25s
+7,Super Mario Advance 2,GBA,19m25s
 8,Super Mario World,SNES,
 8,Super Metroid,SNES,5h49m
 9,The Elder Scrolls III: Morrowind,PC,
@@ -125,7 +125,7 @@
 8,The Last of Us Remastered,PS4,10h25m9s
 8,The Legend of Zelda: Ocarina of Time,N64,
 8,The Legend of Zelda: Twillight Princess,GCN,22h50m
-8,The Messenger,PC,9h10m34s
+7,The Messenger,PC,9h10m34s
 8,The Punisher,PC,6h52m46s
 8,The Surge,PC,15h36m35s
 8,The Witcher,PC,23h
@@ -134,8 +134,8 @@
 8,Thief Gold,PC,11h29m7s
 8,Thief II: The Metal Age,PC,11h56m43s
 8,Titan Souls,PC,2h
-8,Turok: Dinosaur Hunter,PC,5h45m32s
-8,Ultimate DOOM,PC,
+7,Turok: Dinosaur Hunter,PC,5h45m32s
+8,Doom,PC,
 8,Unworthy,PC,9h44m35s
 8,Vanquish,PC,4h53m49s
 8,Wolfenstein: The Old Blood,PC,4h13m16s
@@ -159,7 +159,7 @@
 7,Castlevania: Lords of Shadow + DLC,PC,18h6m
 7,Castlevania: Lords of Shadow 2,PC,10h16m52s
 7,Castlevania: Symphony of the Night,PSX,4h32m47s
-7,Cloudbuilt,PC,1h1m56s
+6,Cloudbuilt,PC,1h1m56s
 7,Crash Bandicoot,PSX,
 7,Crash Bandicoot: Warped,PSX,3h4m5s
 7,Crash Twinsanity,PS2,4h47m31s
@@ -174,7 +174,7 @@
 7,Diddy Kong Racing,N64,6h7m19s
 7,Divinity II (+ DLC),PC,20h33m25s
 7,DMC: Devil May Cry (2013),PC,5h51m15s
-7,Donald Duck: Quack Attack,N64,
+6,Donald Duck: Quack Attack,N64,
 7,DOOM 3,PC,7h10m41s
 7,Dragon Age: Inquisition,PC,29h14m39s
 7,Dragon's Dogma: Dark Arisen,PC,41h
@@ -233,7 +233,7 @@
 7,Quake II,PC,4h46m41
 7,RAGE,PC,6h46m10s
 7,Rayman 2: The Great Escape,PSX,4h57m3s
-7,Rayman 3: Hoodlum Havoc,PC,6h18m
+8,Rayman 3: Hoodlum Havoc,PC,6h18m
 7,Rayman Origins,PC,6h15m45s
 7,Red Faction: Guerilla,PC,9h5m5s
 7,Redeemer,PC,4h47m55s
@@ -242,7 +242,7 @@
 7,Saints Row: The Third,X360,18h
 7,Salt and Sanctuary,PC,10h16m38s
 7,Scribblenauts Unlimited,PC,5h24m46s
-7,Shadow Bug,PC,2h23m42s
+6,Shadow Bug,PC,2h23m42s
 7,Shadow Warrior 2,PC,5h9m14s
 7,Shantae: Half-Genie Hero,PC,7h26m3s
 7,Singularity,PC,4h41m9s
@@ -293,14 +293,14 @@
 6,Fallout 4,PC,49h
 6,Far Cry,PC,8h
 6,Game of Thrones,PC,
-6,Gothic II: Gold Edition,PC,36h9m50s
+7,Gothic II: Gold Edition,PC,36h9m50s
 6,Guacamelee!,PC,6h12m
 6,Half-Life 2: Episode One,PC,2h13m17s
 6,Hand of Fate,PC,8h14m16s
 6,Hard Reset,PC,4h3755s
 6,Hitman: Absolution,PC,9h18m
 6,Iggy's Egg Adventure,PC,
-6,Jak and Daxter (HD),PS3,6h11m7s
+6,Jak and Daxter,PS3,6h11m7s
 6,Kingdoms of Amalur: Reckoning,PC,
 6,Kuru Kuru Kururin,GBA,
 6,LEGO Star Wars: The Complete Saga,X360,
@@ -372,17 +372,17 @@
 5,White Knight Chronicles,PS3,17h42m33s
 5,Xeodrifter,PC,3h4m1s
 4,Alien VS Predator,SNES,
-4,Call of Duty: Black Ops (SP),PC,
+5,Call of Duty: Black Ops (SP),PC,
 4,Cat vs. Corgis,PC,2h21m30s
 4,Croc: Legend of the Gobbos,PSX,
 4,Insanity's Blade,PC,
 4,M&M's Shell Shocked,PSX,3h1m7s
 4,Zeno Clash,PC,2h54m
 3,Dora the Explorer - The Search for Pirate Pig's Treasure,GBA,
-3,Sakura Spirit,PC,1h58m
+4,Sakura Spirit,PC,1h58m
 3,Shrek the Third,PSP,
 2,Shrek 2,GCN,
-2,Super Troll Islands,SNES,
+1,Super Troll Islands,SNES,
 8,Devil May Cry 3,PS3,8h59m56s
 9,Sekiro,PC,25h10m43s
 8,RiME,PC,3h57m20s
@@ -392,6 +392,12 @@
 7,Super Skelemania,PC,1h5m40s
 8,Blood,PC,7h50m10s
 8,Grand Theft Auto: San Andreas,PC,25h1m20s
-8,TH6: Embodiment Of Scarlet Devil,PC,
+7,TH6: Embodiment Of Scarlet Devil,PC,
 6,Shape of the World,PC,47m56s
 7,Asura's Wrath,PS3,5h29m26s
+7,Gato Roboto,PC,3h58m17s
+7,Metro Exodus,PC,12h3m23s
+5,Vampyr,PC,11h36m6s
+8,Wolfenstein 2,PC,6h41m11s
+7,Guacamelee 2,PC,7h47m14s
+8,Bloodstained: Ritual of the Night,PC,12h25m53s

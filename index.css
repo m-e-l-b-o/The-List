@@ -14,10 +14,28 @@ body{
   line-height: 1.8em;
 }
 input{
-  background-color: rgb(26, 26, 26);
-  border: none;
+  background-color: rgb(40, 40, 40);
+  border-radius: 5px;
+  border-style: double;
+  border-color: rgb(40, 40, 40);
   color: #e5e5e5;
   font-size:20px;
+}
+button{
+  background-color: rgb(40, 40, 40);
+  border-radius: 5px;
+  border-style: double;
+  border-color: rgb(40, 40, 40);
+  color: inherit;
+  display: inline-block;
+  font-size:20px;
+}
+button:hover{
+  background-color: rgb(50, 50, 50);
+  border-color: rgb(50, 50, 50);
+}
+button:focus {
+  outline-color: rgb(60, 60, 60)
 }
 #separator{
   margin-top: 20px;
