@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>the list</title>
+  <title>~~</title>
   <link rel="stylesheet" href="index.css">
   <script src="jq.js"></script>
   <script src="papaparse.min.js"></script>
 </head>
 <body onload="loadGames()">
   <div id="center">
-  <h1 class="title"></h1>
+  <h1 id="title">The List</h1>
+
+  <p id="link"><a href="stats.html">Statistics</a></p>
+
+  <div id="separator">
+  </div>
 
   <input onfocus="srcFocus()" onfocusout="srcFocusOut()"autocomplete="off" id="search" onkeyup="searching()" value="Search"></input>
 
@@ -16,8 +21,6 @@
   <button onclick="sortABC(1)">Console</button>
   <button onclick="sortDES()">10->1</button>
 
-  <div id="separator">
-  </div>
 
   <table id="table">
 
