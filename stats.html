@@ -16,10 +16,13 @@
   <div id="separator">
   </div>
 
-  <h2>Number of games per rating</h3>
+  <h2>Number of games per rating</h2>
   <canvas class="chart" id="ratingChart"></canvas>
 
   <p>Average rating: <p class="averageRating"></p></p>
+
+  <h2>Number of games per console</h2>
+  <canvas class="chart" id="consoleChart"></canvas>
 
   </div>
 
@@ -50,7 +53,6 @@ Papa.parse(link, {
       var counts = [0,0,0,0,0,0,0,0,0,0]
       for(i=0;i<ratings.length;i++){
         for(j=0;j<10;j++){
-          console.log(j)
           if(ratings[i] == j+1){
             counts[j] += 1
           }
@@ -58,13 +60,31 @@ Papa.parse(link, {
       }
       return counts
     }
+    function getConsoles(){
+      var clist = []
+      for(i=0;i<platforms.length;i++){
+        if(clist.includes(platforms[i])){}
+        else{clist.push(platforms[i])}
+      }
+      return clist
+    }
+    function getConsoleAmount(){
+      var clist = getConsoles()
+      var camountlist = new Array(clist.length).fill(0)
+      var pos
+      for(i=0;i<platforms.length;i++){
+        pos = clist.indexOf(platforms[i])
+        camountlist[pos] += 1
+      }
+      return camountlist
+    }
 
     //Inserting values
-    var sum = 0
+    var rsum = 0
     for(i=0;i<ratings.length;i++){
-      sum += ratings[i]
+      rsum += ratings[i]
     }
-    $(".averageRating").html(sum/ratings.length)
+    $(".averageRating").html(rsum/ratings.length)
 
     //Charts
     var ratingChart = new Chart(document.getElementById("ratingChart").getContext("2d"),{
@@ -78,32 +98,50 @@ Papa.parse(link, {
         }]
       }
     })
+    var consoleChart = new Chart(document.getElementById("consoleChart").getContext("2d"),{
+      type: "doughnut",
+      data: {
+        labels: getConsoles(),
+        datasets: [{
+          label: "# of games",
+          data: getConsoleAmount(),
+          backgroundColor: getColors(getConsoles().length),
+          borderColor: "rgba(30,30,30,1)"
+        }]
+      }
+    })
 
     //end of "complete"
   }
 });
 
 //List independent functions
-function getColors(n){
-  var colors = [
-    "rgba(63,191,127,0.4)",
-    "rgba(63,191,191,0.4)",
-    "rgba(63,127,191,0.4)",
-    "rgba(63,63,191,0.4)",
-    "rgba(127,63,191,0.4)",
-    "rgba(191,63,191,0.4)",
-    "rgba(191,63,127,0.4)",
-    "rgba(191,63,63,0.4)",
-    "rgba(191,127,63,0.4)",
-    "rgba(191,191,63,0.4)"
-  ]
-  return colors.slice(0,n)
+function getColors(n){ //Picks n hues then converts to n rgb values.
+  var hues = []
+  var rgbs = []
+  for(i=0;i<n;i++){
+    hues.push((360/n)*(i+1))
+  }
+  for(i=0;i<hues.length;i++){
+    var H,S,L,C,X,m,prime,rgb
+    H = hues[i]
+    S = 1
+    L = 0.6
+    C = (1 - Math.abs(2*L - 1))*S
+    X = C*(1-Math.abs(((H/60)%2)-1))
+    m = L - (C/2)
+    if(H < 60){prime = [C,X,0]}
+    else if(60 <= H && H < 120){prime = [X,C,0]}
+    else if(120 <= H && H < 180){prime = [0,C,X]}
+    else if(180 <= H && H < 240){prime = [0,X,C]}
+    else if(240 <= H && H < 300){prime = [X,0,C]}
+    else if(300 <= H && H < 360){prime = [C,0,X]}
+    //console.log(prime)
+    rgb = [(prime[0]+m)*255,(prime[1]+m)*255,(prime[2]+m)*255]
+    rgbs.push("rgba(" + Math.round(rgb[0]) + "," + Math.round(rgb[1]) + "," + Math.round(rgb[2]) + "," + 0.4 + ")")
+  }
+  return rgbs.reverse()
 }
-/* This takes n colors from a selection of max 10. I plan
-to replace this with an algorithm which gets n equidistant
-hues in HSL and converts it to RGB. That way I might be
-able to produce n "distinct" colors.
-HSL to RGB conversion on Wikipedia */
 
 </script>
 </body>
