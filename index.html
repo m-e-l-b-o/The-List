@@ -3,6 +3,7 @@
 <head>
   <title>~~</title>
   <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
   <script src="jq.js"></script>
   <script src="papaparse.min.js"></script>
 </head>
@@ -54,7 +55,7 @@ function searching() {
 }
 function loadGames(){
   var games = [];
-  var link = "https://raw.githubusercontent.com/m-e-l-b-o/the-list/master/GAMES.csv"
+  var link = "https://raw.githubusercontent.com/m-e-l-b-o/the-list/master/list.csv"
   Papa.parse(link, {
     download: true,
     complete: function(results){

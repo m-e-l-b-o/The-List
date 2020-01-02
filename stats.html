@@ -28,7 +28,7 @@
 
 <script>
 games = [], ratings = [], names = [], platforms = [], times = []
-var link = "https://raw.githubusercontent.com/m-e-l-b-o/the-list/master/GAMES.csv"
+var link = "https://raw.githubusercontent.com/m-e-l-b-o/the-list/master/list.csv"
 Papa.parse(link, {
   download: true,
   complete: function(results){
@@ -106,7 +106,7 @@ Papa.parse(link, {
           label: "# of games",
           data: getConsoleAmount(),
           backgroundColor: getColors(getConsoles().length),
-          borderColor: "rgba(30,30,30,1)"
+          borderColor: "rgba(30,30,30,0)"
         }]
       }
     })
@@ -138,7 +138,7 @@ function getColors(n){ //Picks n hues then converts to n rgb values.
     else if(300 <= H && H < 360){prime = [C,0,X]}
     //console.log(prime)
     rgb = [(prime[0]+m)*255,(prime[1]+m)*255,(prime[2]+m)*255]
-    rgbs.push("rgba(" + Math.round(rgb[0]) + "," + Math.round(rgb[1]) + "," + Math.round(rgb[2]) + "," + 0.4 + ")")
+    rgbs.push("rgba(" + Math.round(rgb[0]) + "," + Math.round(rgb[1]) + "," + Math.round(rgb[2]) + "," + 0.7 + ")")
   }
   return rgbs.reverse()
 }
