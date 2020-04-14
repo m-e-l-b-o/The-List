@@ -1,63 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>~~</title>
-  <link rel="stylesheet" href="index.css">
-  <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
-  <script src="jq.js"></script>
-  <script src="papaparse.min.js"></script>
+	<title>DATABASE_melbo</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="jq.js"></script>
+	<script src="textTyper.js"></script>
+	<script src="papaparse.min.js"></script>
 </head>
-<body onload="loadGames()">
-  <div id="center">
-  <h1 id="title">The List</h1>
-
-  <p id="link"><a href="stats.html">Statistics</a></p>
-
-  <div id="separator">
-  </div>
-
-  <input onfocus="srcFocus()" onfocusout="srcFocusOut()"autocomplete="off" id="search" onkeyup="searching()" value="Search"></input>
-
-  <button onclick="sortABC(0)">A->Z</button>
-  <button onclick="sortABC(1)">Console</button>
-  <button onclick="sortDES()">10->1</button>
-
-
-  <table id="table">
-
-  </table>
-  </div>
-
+<body>
+	<section id="home">
+	<p>DATABASE ONLINE...</p>
+	<p>FOUND <a id="gameAmount"></a> GAMES</p>
+	<p>TYPE 'GAME' + <kbd>Enter</kbd> TO SEARCH</p>
+	</section>
+	
+	<section id="games">
+	<table id="table">
+	</table>
+	</section>
+	
+	<span class="cmd">USER:/<input type="text"></input></span>
 <script>
-//You're not supposed to be in here...
-function srcFocus(){
-  var search = document.getElementById("search")
-  if(search.value=='Search'){search.value=''}
+$(document).ready(function(){
+
+	$("#games").hide();
+	loadGames(); //Parsing .CSV file into the #games table.
+	
+});
+
+function loadComplete(){ //Starts after parsing .CSV
+	
+	//INITIALIZATION
+	$("#gameAmount").html($('#table tr').length.toString()); //Inserts amount of games
+	$(".cmd").hide();
+	$("input[type='text']").focus();
+	$("#home").addClass('open');
+	$("#home").textTyper({
+		speed:30,
+		afterAnimation:function(){
+			$(".cmd").fadeIn();
+			$("input[type='text']").focus();
+			$("input[type='text']").val("");
+		}
+	});
+	var sectionArray = []; //Makes list of section ids
+	$('section').each(function(i,e) {
+		sectionArray.push($(e).attr('id'));
+	});
+	
+	//SWITCHING
+	$("input[type='text']").keyup(function(e){
+		if(e.which == 13){
+			$("#home").hide();
+			$(".cmd").hide();
+			$("#games").show();
+			var cmdinput = $("input[type='text']").val().toUpperCase();
+			$('#table tr').each(function(){
+				game = $(this).find("td").html().toUpperCase();
+				reg = new RegExp(cmdinput);
+				if(game.match(reg) == null){
+					$(this).hide()
+				}
+				else if(game.match(reg) != null){
+					$(this).show();
+				}
+			});
+			$("#games tr:visible").textTyper({
+				speed:50,
+				afterAnimation:function(){
+					$(".cmd").fadeIn();
+					$("input[type='text']").focus();
+					$("input[type='text']").val("");
+				}
+			});
+			$("input[type='text']").focus();
+			$("input[type='text']").val('');
+		}
+	});
 }
-function srcFocusOut(){
-  var search = document.getElementById("search")
-  if(search.value==''){search.value='Search'}
-}
-function searching() {
-  var input, filter, ul, li, a, i, txtValue
-  table = document.getElementById("table")
-  input = document.getElementById("search").value.toUpperCase()
-  for(i=0;i<table.rows.length;i++){
-    game = table.rows[i].cells[0].innerHTML.toUpperCase()
-    reg = new RegExp(input);
-    if(game.match(reg) == null){
-      table.rows[i].style.display = "none"
-      console.log(table.rows[i])
-    }else if(game.match(reg) != null){
-      table.rows[i].style.display = ""
-    }
-  }
-}
+
 function loadGames(){
-  var games = [];
-  var link = "https://raw.githubusercontent.com/m-e-l-b-o/the-list/master/list.csv"
-  Papa.parse(link, {
-    download: true,
+	var games = [];
+	var link = "https://raw.githubusercontent.com/m-e-l-b-o/the-list/master/list.csv"
+	Papa.parse(link, {
+	download: true,
     complete: function(results){
       for(n = 2; n < results.data.length;n++){
         games.push({
@@ -84,48 +110,14 @@ function loadGames(){
         td2.style.textAlign = "center"
         node.appendChild(td3)
         td3.appendChild(rating)
-        td3.style.textAlign = "center"
         node.appendChild(td4)
         td4.appendChild(time)
-        td4.style.textAlign = "center"
         document.getElementById("table").appendChild(node)
       }
-      sortABC(0)
+	loadComplete();
     }
   });
 }
-//I'm not going to warn you again. Get out, or I'll call the guards!
-function sortABC(m){ //m = 0(A-Z), 1(Console)
-  var table, swapping, rows
-  table = document.getElementById("table")
-  rows = table.rows
-  swapping = true
-  while(swapping){
-	swapping = false
-	for(i=0;i < rows.length - 1;i++){
-	  if(rows[i].cells[m].innerHTML.toLowerCase().replace("/[^\w\s]/gi", '') > rows[i+1].cells[m].innerHTML.toLowerCase().replace("/[^\w\s]/gi", '')){
-		rows[i].parentNode.insertBefore(rows[i + 1], rows[i])
-		swapping = true
-	  }
-	}
-  }
-}
-function sortDES(){
-  var table, swapping, rows
-  table = document.getElementById("table")
-  rows = table.rows
-  swapping = true
-  while(swapping){
-	swapping = false
-	for(i=0;i < rows.length - 1;i++){
-	  if(parseFloat(rows[i].cells[2].innerHTML) < parseFloat(rows[i+1].cells[2].innerHTML)){
-		rows[i].parentNode.insertBefore(rows[i + 1], rows[i])
-		swapping = true
-	  }
-	}
-  }
-}
-
 </script>
 </body>
 </html>
