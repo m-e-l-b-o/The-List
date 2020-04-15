@@ -13,6 +13,7 @@ input{
 	border: none;
 	font-family: inherit;
 	padding:0 .5em;
+	text-transform: uppercase;
 }
 input:focus{
 	background: #000;
@@ -30,5 +31,10 @@ kbd{
 	padding:0 .2em;
 }
 a{
-	color: RED;
+	color: red;
+}
+.column{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: red;
 }

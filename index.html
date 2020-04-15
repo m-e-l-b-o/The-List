@@ -5,12 +5,14 @@
 	<link rel="stylesheet" href="index.css">
 	<script src="jq.js"></script>
 	<script src="papaparse.min.js"></script>
+	<script src="chart.js"></script>
 </head>
 <body>
 	<section id="home">
 	<p>DATABASE ONLINE...</p>
-	<p>FOUND <a id="gameAmount"></a> GAMES</p>
+	<p id="homeinpGames"></p>
 	<p>TYPE 'GAME' + <kbd>Enter</kbd> TO SEARCH</p>
+	<p>TYPE 'STATS' + <kbd>Enter</kbd> FOR STATS</p>
 	</section>
 	
 	<section id="games">
@@ -18,27 +20,37 @@
 	</table>
 	</section>
 	
+	<section id="stats">
+	<p id="inpGames"></p>
+	<p id="inpAvgrating"></p>
+	<p id="inpTotaltime">RECORDED FIRST PLAYTHROUGH TIME SUM: </p>
+	<p id="inpRatingdist">===RATING DISTRIBUTION===</p>
+	<p>TYPE 'HOME' + <kbd>Enter</kbd> TO GO BACK</p>
+	</section>
+	
 	<p id="errorMsg"></p>
 	<span class="cmd">USER:/<input type="text"></input></span>
 <script>
+//Chart.js font
+Chart.defaults.global.defaultFontFamily = 'Cutive Mono';
+Chart.defaults.global.defaultFontColor = '#FFF';
 //textTyper
 (function(e){"use strict";e.fn.textTyper=function(t){var n={typingClass:"typing",beforeAnimation:function(){},afterAnimation:function(){},speed:70,nextLineDelay:400,startsFrom:0,repeatAnimation:false,repeatDelay:4e3,repeatTimes:1,cursorHtml:'<span class="cursor">|</span>'},r=e.extend({},n,t);this.each(function(){var t=e(this),n=1,i="typingCursor";var s=t,o=s.length,u=[];while(o--){u[o]=e.trim(e(s[o]).html());e(s[o]).html("")}t.init=function(e){var n=r.beforeAnimation;if(n)n();t.animate(0)};t.animate=function(o){var a=s[o],f=r.typingClass,l=r.startsFrom;e(a).addClass(f);var c=setInterval(function(){var f=r.cursorHtml;f=e("<div>").append(e(f).addClass(i)).html();e(a).html(u[o].substr(0,l)+f);l++;if(u[o].length<l){clearInterval(c);o++;if(s[o]){setTimeout(function(){e(a).html(u[o-1]);t.animate(o)},r.nextLineDelay)}else{e(a).find("."+i).remove();if(r.repeatAnimation&&(r.repeatTimes==0||n<r.repeatTimes)){setTimeout(function(){t.animate(0);n++},r.repeatDelay)}else{var h=r.afterAnimation;if(h)h()}}}},r.speed)};t.init()});return this}})(jQuery)
 
 $(document).ready(function(){
-
 	$("#games").hide();
+	$("#stats").hide();
 	loadGames(); //Parsing .CSV file into the #games table.
-	
 });
 
 function loadComplete(){ //Starts after parsing .CSV
 	
 	//INITIALIZATION
-	$("#gameAmount").html($('#table tr').length.toString()); //Inserts amount of games
+	$("#homeinpGames").html("FOUND <a>" + $('#table tr').length.toString() + "</a> GAMES"); //Inserts amount of games
 	$(".cmd").hide();
 	$("input[type='text']").focus();
 	$("#home").textTyper({
-		speed:30,
+		speed:20,
 		afterAnimation:function(){
 			$(".cmd").fadeIn();
 			$("input[type='text']").focus();
@@ -57,11 +69,44 @@ function loadComplete(){ //Starts after parsing .CSV
 				$("#games").hide();
 				$("#errorMsg").show();
 				$("#errorMsg").text("ERROR: EMPTY INPUT");
-				$("#errorMsg").textTyper({afterAnimation:function(){
-					$(".cmd").fadeIn();
-					$("input[type='text']").focus();
-					$("input[type='text']").val("");
-				}});
+				$("#errorMsg").textTyper({
+					speed:20,
+					afterAnimation:function(){
+						$(".cmd").fadeIn();
+						$("input[type='text']").focus();
+						$("input[type='text']").val("");
+					}
+				});
+			}
+			else if($("input[type='text']").val().toUpperCase() == "HOME"){ //On "HOME" inupt
+				$("#games").hide();
+				$("#stats").hide();
+				$(".column").remove();
+				$("#home").show();
+				$("#home").textTyper({
+					speed:20,
+					afterAnimation:function(){
+						$(".cmd").fadeIn();
+						$("input[type='text']").focus();
+						$("input[type='text']").val("");
+					}
+				});
+			}
+			else if($("input[type='text']").val().toUpperCase() == "STATS"){ //On "STATS" inupt
+				$("#games").hide();
+				$("#inpGames").html("GAME TOTAL: <a>" + $('#table tr').length.toString() + "</a>")
+				$("#inpAvgrating").html("AVERAGE RATING: <a>" + avgRating() + "</a>")
+				$("#inpTotaltime").html("RECORDED FIRST PLAYTHROUGH TIME SUM: <a>" + totalTime() + "</a>")
+				$("#inpRatingdist").append(ratingDist())
+				$("#stats").show();
+				$("#stats").textTyper({
+					speed:20,
+					afterAnimation:function(){
+						$(".cmd").fadeIn();
+						$("input[type='text']").focus();
+						$("input[type='text']").val("");
+					}
+				});
 			}
 			else{ //On game input
 				$("#games").show();
@@ -80,8 +125,10 @@ function loadComplete(){ //Starts after parsing .CSV
 				});
 				if(!foundGame){ //Game not found
 					$("#errorMsg").show();
-					$("#errorMsg").text("ERROR: " + $("input[type='text']").val() + " NOT FOUND");
-					$("#errorMsg").textTyper({afterAnimation:function(){
+					$("#errorMsg").text("ERROR: " + $("input[type='text']").val().toUpperCase() + " NOT FOUND");
+					$("#errorMsg").textTyper({
+					speed:30,
+					afterAnimation:function(){
 						$(".cmd").fadeIn();
 						$("input[type='text']").focus();
 						$("input[type='text']").val("");
@@ -102,45 +149,132 @@ function loadComplete(){ //Starts after parsing .CSV
 	});
 }
 
+//MISC FUNCTIONS
 function loadGames(){
-	var games = [];
+	games = [], ratings = [], names = [], platforms = [], times = []
 	var link = "https://raw.githubusercontent.com/m-e-l-b-o/the-list/master/list.csv"
 	Papa.parse(link, {
 	download: true,
     complete: function(results){
-      for(n = 2; n < results.data.length;n++){
-        games.push({
-          rating: results.data[n][0],
-          name: results.data[n][1],
-          platform: results.data[n][2],
-          time: results.data[n][3]
-        });
-      }
-      for(n = 0;n < games.length;n++){
-        var node = document.createElement("TR")
-        var game = document.createTextNode(games[n].name)
-        var platform = document.createTextNode(games[n].platform)
-        var rating = document.createTextNode(games[n].rating)
-        var time = document.createTextNode(games[n].time)
-        var td1 = document.createElement("TD")
-        var td2 = document.createElement("TD")
-        var td3 = document.createElement("TD")
-        var td4 = document.createElement("TD")
-        node.appendChild(td1)
-        td1.appendChild(game)
-        node.appendChild(td2)
-        td2.appendChild(platform)
-        td2.style.textAlign = "center"
-        node.appendChild(td3)
-        td3.appendChild(rating)
-        node.appendChild(td4)
-        td4.appendChild(time)
-		td4.style.textAlign = "center"
-        document.getElementById("table").appendChild(node)
-      }
+		for(n = 2; n < results.data.length;n++){
+			games.push({
+				rating: results.data[n][0],
+				name: results.data[n][1],
+				platform: results.data[n][2],
+				time: results.data[n][3]
+			});
+		}
+		for(i=0;i<games.length;i++){
+			ratings.push(parseInt(games[i].rating))
+			names.push(games[i].name)
+			platforms.push(games[i].platform)
+			times.push(games[i].time)
+		}
+		for(n = 0;n < games.length;n++){
+			var node = document.createElement("TR")
+			var game = document.createTextNode(games[n].name)
+			var platform = document.createTextNode(games[n].platform)
+			var rating = document.createTextNode(games[n].rating)
+			var time = document.createTextNode(games[n].time)
+			var td1 = document.createElement("TD")
+			var td2 = document.createElement("TD")
+			var td3 = document.createElement("TD")
+			var td4 = document.createElement("TD")
+			node.appendChild(td1)
+			td1.appendChild(game)
+			node.appendChild(td2)
+			td2.appendChild(platform)
+			td2.style.textAlign = "center"
+			node.appendChild(td3)
+			td3.appendChild(rating)
+			node.appendChild(td4)
+			td4.appendChild(time)
+			td4.style.textAlign = "center"
+			document.getElementById("table").appendChild(node)
+		}
 	loadComplete();
     }
   });
+}
+
+function getRatingAmount(){
+    var counts = [0,0,0,0,0,0,0,0,0,0]
+    for(i=0;i<ratings.length;i++){
+        for(j=0;j<10;j++){
+			if(ratings[i] == j+1){
+				counts[j] += 1
+			}
+        }
+    }
+    return counts
+}
+
+function getConsoles(){
+      var clist = []
+      for(i=0;i<platforms.length;i++){
+        if(clist.includes(platforms[i])){}
+        else{clist.push(platforms[i])}
+      }
+      return clist
+}
+function getConsoleAmount(){
+    var clist = getConsoles()
+    var camountlist = new Array(clist.length).fill(0)
+    var pos
+    for(i=0;i<platforms.length;i++){
+        pos = clist.indexOf(platforms[i])
+        camountlist[pos] += 1
+    }
+    return camountlist
+ }
+
+function avgRating(){
+	var rsum = 0
+	for(i=0;i<ratings.length;i++){
+		rsum += ratings[i]
+	}
+	return (rsum/ratings.length).toFixed(2)
+}
+
+function ratingDist(){
+	var outputHtml = ""
+	var maxRating = Math.max(...getRatingAmount())
+	for(n=0;n<getRatingAmount().length;n++){
+		var blockAmount = Math.floor(50*(getRatingAmount()[n]/maxRating)) + 1
+		outputHtml += "<p class='column'>"
+		for(j=0;j<blockAmount;j++){
+			outputHtml += "&#9617"
+		}
+		outputHtml += "  " + parseInt(n+1) + "(" + getRatingAmount()[n] + ")</p>"
+	}
+	return outputHtml
+}
+function totalTime(){
+	var totalSeconds = 0
+	for(i=0;i<times.length;i++){
+		if(times[i] != ""){
+			var time = times[i]
+			var hours, minutes, seconds
+			if(time.includes("h")){
+				hours = parseInt(time.split("h")[0]);
+				time = time.substr(time.split("h")[0].length + 1)
+			}else{hours = 0}
+			if(time.includes("m")){
+				minutes = parseInt(time.split("m")[0]);
+				time = time.substr(time.split("m")[0].length + 1)
+			}else{minutes = 0}
+			if(time.includes("s")){
+				seconds = parseInt(time.split("s")[0]);
+			}else{seconds = 0}
+			totalSeconds += hours*60*60 + minutes*60 + seconds
+		}
+	}
+	var outH, outM, outS
+	outH = Math.floor(totalSeconds/(60*60))
+	totalSeconds %= 3600;
+	outM = Math.floor(totalSeconds / 60);
+	outS = totalSeconds % 60
+	return outH + "H " + outM + "M " + outS + "S"
 }
 </script>
 </body>
