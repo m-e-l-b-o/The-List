@@ -110,6 +110,8 @@ function loadComplete(){ //Starts after parsing .CSV
 			}
 			else{ //On game input
 				$("#games").show();
+				$("#stats").hide();
+				$(".column").remove();
 				var cmdinput = $("input[type='text']").val().toUpperCase();
 				var foundGame = false
 				$('#table tr').each(function(){
