@@ -12,7 +12,7 @@
 	<p>DATABASE ONLINE...</p>
 	<p id="homeinpGames"></p>
 	<p>TYPE 'GAME' + <kbd>Enter</kbd> TO SEARCH</p>
-	<p>TYPE 'STATS' + <kbd>Enter</kbd> FOR STATS</p>
+	<p>OTHER COMMANDS: 'STATS', 'CONSOLES'</p>
 	</section>
 	
 	<section id="games">
@@ -28,6 +28,11 @@
 	<p>TYPE 'HOME' + <kbd>Enter</kbd> TO GO BACK</p>
 	</section>
 	
+	<section id="consoles">
+	<p id="inpConsoledist">===CONSOLE DISTRIBUTION===</p>
+	<p>TYPE 'HOME' + <kbd>Enter</kbd> TO GO BACK</p>
+	</section>
+	
 	<p id="errorMsg"></p>
 	<span class="cmd">USER:/<input type="text"></input></span>
 <script>
@@ -40,6 +45,7 @@ Chart.defaults.global.defaultFontColor = '#FFF';
 $(document).ready(function(){
 	$("#games").hide();
 	$("#stats").hide();
+	$("#consoles").hide();
 	loadGames(); //Parsing .CSV file into the #games table.
 });
 
@@ -81,6 +87,7 @@ function loadComplete(){ //Starts after parsing .CSV
 			else if($("input[type='text']").val().toUpperCase() == "HOME"){ //On "HOME" inupt
 				$("#games").hide();
 				$("#stats").hide();
+				$("#consoles").hide();
 				$(".column").remove();
 				$("#home").show();
 				$("#home").textTyper({
@@ -94,12 +101,27 @@ function loadComplete(){ //Starts after parsing .CSV
 			}
 			else if($("input[type='text']").val().toUpperCase() == "STATS"){ //On "STATS" inupt
 				$("#games").hide();
+				$("#consoles").hide();
 				$("#inpGames").html("GAME TOTAL: <a>" + $('#table tr').length.toString() + "</a>")
 				$("#inpAvgrating").html("AVERAGE RATING: <a>" + avgRating() + "</a>")
 				$("#inpTotaltime").html("RECORDED FIRST PLAYTHROUGH TIME SUM: <a>" + totalTime() + "</a>")
 				$("#inpRatingdist").append(ratingDist())
 				$("#stats").show();
 				$("#stats").textTyper({
+					speed:20,
+					afterAnimation:function(){
+						$(".cmd").fadeIn();
+						$("input[type='text']").focus();
+						$("input[type='text']").val("");
+					}
+				});
+			}
+			else if($("input[type='text']").val().toUpperCase() == "CONSOLES"){ //On "CONSOLES" inupt
+				$("#games").hide();
+				$("#stats").hide();
+				$("#inpConsoledist").append(consoleDist())
+				$("#consoles").show();
+				$("#consoles").textTyper({
 					speed:20,
 					afterAnimation:function(){
 						$(".cmd").fadeIn();
@@ -237,20 +259,6 @@ function avgRating(){
 	}
 	return (rsum/ratings.length).toFixed(2)
 }
-
-function ratingDist(){
-	var outputHtml = ""
-	var maxRating = Math.max(...getRatingAmount())
-	for(n=0;n<getRatingAmount().length;n++){
-		var blockAmount = Math.floor(50*(getRatingAmount()[n]/maxRating)) + 1
-		outputHtml += "<p class='column'>"
-		for(j=0;j<blockAmount;j++){
-			outputHtml += "&#9617"
-		}
-		outputHtml += "  " + parseInt(n+1) + "(" + getRatingAmount()[n] + ")</p>"
-	}
-	return outputHtml
-}
 function totalTime(){
 	var totalSeconds = 0
 	for(i=0;i<times.length;i++){
@@ -277,6 +285,34 @@ function totalTime(){
 	outM = Math.floor(totalSeconds / 60);
 	outS = totalSeconds % 60
 	return outH + "H " + outM + "M " + outS + "S"
+}
+function ratingDist(){
+	var outputHtml = ""
+	var maxRating = Math.max(...getRatingAmount())
+	for(n=0;n<getRatingAmount().length;n++){
+		var blockAmount = Math.floor(50*(getRatingAmount()[n]/maxRating)) + 1
+		outputHtml += "<p class='column'>"
+		for(m=0;m<blockAmount;m++){
+			outputHtml += "&#9617"
+		}
+		outputHtml += "  " + parseInt(n+1) + "(" + getRatingAmount()[n] + ")</p>"
+	}
+	return outputHtml
+}
+function consoleDist(){
+	var consoles = getConsoles()
+	var consoleAmount = getConsoleAmount()
+	var outputHtml = ""
+	var maxConsole = Math.max(...getConsoleAmount())
+	for(n=0;n<consoles.length;n++){
+		var blockAmount = Math.floor(50*(getConsoleAmount()[n]/maxConsole)) + 1
+		outputHtml += "<p class='column'>"
+		for(m=0;m<blockAmount;m++){
+			outputHtml += "&#9617"
+		}
+		outputHtml += "  " + getConsoles()[n] + "(" + getConsoleAmount()[n] + ")</p>"
+	}
+	return outputHtml
 }
 </script>
 </body>
