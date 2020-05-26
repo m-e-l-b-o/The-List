@@ -63,7 +63,6 @@ function loadComplete(){ //Starts after parsing .CSV
 			$("input[type='text']").val("");
 		}
 	});
-	
 	//SWITCHING
 	$("input[type='text']").keyup(function(e){
 		if(e.which == 13){
@@ -129,6 +128,29 @@ function loadComplete(){ //Starts after parsing .CSV
 						$("input[type='text']").val("");
 					}
 				});
+			}
+			else if(getConsoles().indexOf($("input[type='text']").val().toUpperCase()) != -1){ //On a console input
+				$("#games").show();
+				$("#stats").hide();
+				$("#consoles").hide();
+				$(".column").remove();
+				var cmdinput = $("input[type='text']").val().toUpperCase();
+				$('#table tr').each(function(){
+					if($(this).find("td:eq(1)").html().toUpperCase() == cmdinput){
+						$(this).show()
+					}else{
+						$(this).hide()
+					}
+				});
+				$("#games tr:visible").show({
+					complete:function(){
+						$(".cmd").fadeIn();
+						$("input[type='text']").focus();
+						$("input[type='text']").val("");
+					}
+				});
+				$("input[type='text']").focus();
+				$("input[type='text']").val('');
 			}
 			else{ //On game input
 				$("#games").show();
@@ -196,26 +218,11 @@ function loadGames(){
 		}
 		for(n = 0;n < games.length;n++){
 			ratingColors = ["#ff3333","#ff9933","#ffff33","#99ff33","#33ff33"]
-			var node = document.createElement("TR")
-			var game = document.createTextNode(games[n].name)
-			var platform = document.createTextNode(games[n].platform)
-			var rating = document.createTextNode(games[n].rating)
-			var time = document.createTextNode(games[n].time)
-			var td1 = document.createElement("TD")
-			var td2 = document.createElement("TD")
-			var td3 = document.createElement("TD")
-			var td4 = document.createElement("TD")
-			node.appendChild(td1)
-			td1.appendChild(game)
-			node.appendChild(td2)
-			td2.appendChild(platform)
-			td2.style.textAlign = "center"
-			node.appendChild(td3)
-			td3.appendChild(rating)
-			node.appendChild(td4)
-			td4.appendChild(time)
-			td4.style.textAlign = "center"
-			document.getElementById("table").appendChild(node)
+			$("#table").append("<tr></tr>")
+			$("#table tr:last").append("<td>" + games[n].name + "</td>")
+			$("#table tr:last").append("<td>" + games[n].platform + "</td>")
+			$("#table tr:last").append("<td style='color:" + ratingColors[parseInt(games[n].rating)-1] + "'>" + games[n].rating + "/5</td>")
+			$("#table tr:last").append("<td>" + games[n].time + "</td>")
 		}
 	loadComplete();
     }
