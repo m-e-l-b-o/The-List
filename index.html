@@ -116,7 +116,7 @@ function loadComplete(){ //Starts after parsing .CSV
 					}
 				});
 			}
-			else if($("input[type='text']").val().toUpperCase() == "CONSOLES"){ //On "CONSOLES" inupt
+			else if($("input[type='text']").val().toUpperCase() == "CONSOLES"){ //On "CONSOLES" input
 				$("#games").hide();
 				$("#stats").hide();
 				$("#inpConsoledist").append(consoleDist())
@@ -159,9 +159,8 @@ function loadComplete(){ //Starts after parsing .CSV
 						$("input[type='text']").val("");
 					}});
 				}
-				$("#games tr:visible").textTyper({
-					speed:30,
-					afterAnimation:function(){
+				$("#games tr:visible").show({
+					complete:function(){
 						$(".cmd").fadeIn();
 						$("input[type='text']").focus();
 						$("input[type='text']").val("");
@@ -196,6 +195,7 @@ function loadGames(){
 			times.push(games[i].time)
 		}
 		for(n = 0;n < games.length;n++){
+			ratingColors = ["#ff3333","#ff9933","#ffff33","#99ff33","#33ff33"]
 			var node = document.createElement("TR")
 			var game = document.createTextNode(games[n].name)
 			var platform = document.createTextNode(games[n].platform)
