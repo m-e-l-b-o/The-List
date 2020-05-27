@@ -8,6 +8,8 @@
 	<script src="chart.js"></script>
 </head>
 <body>
+	<div id="centered">
+	
 	<section id="home">
 	<p>DATABASE ONLINE...</p>
 	<p id="homeinpGames"></p>
@@ -31,11 +33,29 @@
 	<section id="consoles">
 	<p id="inpConsoledist">===CONSOLE DISTRIBUTION===</p>
 	<p>TYPE 'HOME' + <kbd>Enter</kbd> TO GO BACK</p>
+	<p>TYPE 'CONSOLE' + <kbd>Enter</kbd> TO SEE CONSOLE SPECIFIC RATINGS</p>
 	</section>
+	
+	<!--
+	<section id="speedruns">
+	<p>==="SPEEDRUNS"===<p>
+	<p><a href="https://www.speedrun.com/user/Melbo">SPEEDRUN.COM</a></p>
+	<p>===NOT UPLOADED/SUBMITTED===</p>
+	</section>
+	-->
 	
 	<p id="errorMsg"></p>
 	<span class="cmd">USER:/<input type="text"></input></span>
+	
+	
+	</div>
 <script>
+function readFiles()
+{
+    $.get('speedruns.txt', function(data) {
+        alert(data);
+    }, "text");
+}
 //Chart.js font
 Chart.defaults.global.defaultFontFamily = 'Cutive Mono';
 Chart.defaults.global.defaultFontColor = '#FFF';
@@ -50,7 +70,7 @@ $(document).ready(function(){
 });
 
 function loadComplete(){ //Starts after parsing .CSV
-	
+	readFiles()
 	//INITIALIZATION
 	$("#homeinpGames").html("FOUND <a>" + $('#table tr').length.toString() + "</a> GAMES"); //Inserts amount of games
 	$(".cmd").hide();

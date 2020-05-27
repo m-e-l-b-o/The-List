@@ -5,7 +5,12 @@ html{
 }
 body{
 	color: #fff;
-	font: .875em/1.6 'Cutive Mono', monospace;
+	font: 1em/1.6 'Cutive Mono', monospace;
+}
+#centered{
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%)
 }
 input{
 	color: inherit;
