@@ -64,9 +64,9 @@
 4,Grand Theft Auto IV,X360,
 4,Grand Theft Auto V ,X360,
 3,Half-Life: Opposing Force,PC,2h43m5s
-4,Halo 2,XBOX,
-4,Halo 3,X360,
-4,Halo: Combat Evolved,XBOX,
+5,Halo 2,XBOX,
+5,Halo 3,X360,
+5,Halo: Combat Evolved,XBOX,
 4,Halo: Reach,X360,
 4,Heretic,PC,
 4,Hitman 2: Silent Assassin,PC,6h47m30s
@@ -150,7 +150,7 @@
 3,"Bioshock 2 ""Remastered""",PC,5h27m55s
 3,Bioshock: Infinite,PC,5h15m26s
 3,Bully: Scholarship Edition,PC,12h43m6s
-3,Call of Cthulhu: Dark Corners of the Earth,PC,12h49m10s
+4,Call of Cthulhu: Dark Corners of the Earth,PC,12h49m10s
 3,Capsized,PC,2h46m22s
 3,Castlevania: Circle of the Moon,GBA,7h24m38s
 3,Castlevania: Dracula X,SNES,
@@ -242,7 +242,7 @@
 3,Salt and Sanctuary,PC,10h16m38s
 3,Scribblenauts Unlimited,PC,5h24m46s
 2,Shadow Bug,PC,2h23m42s
-3,Shadow Warrior 2,PC,5h9m14s
+2,Shadow Warrior 2,PC,5h9m14s
 3,Shantae: Half-Genie Hero,PC,7h26m3s
 3,Singularity,PC,4h41m9s
 3,Sleeping Dogs,PC,15h30s
@@ -363,7 +363,7 @@
 1,Ryse: Son of Rome,PC,5h18m
 1,Saints Row IV,PC,15h
 1,Serious Sam 2,PC,10h16m36s
-1,Shadow Warrior (2013),PC,8h36m
+2,Shadow Warrior (2013),PC,8h36m
 1,Shrek Super Slam,GCN,28m5s
 1,Spec Ops: The Line,PC,4h11m47s
 1,Thief (2014),PC,5h55m43s
@@ -425,7 +425,7 @@
 3,Project Warlock,PC,4h53m21s
 2,ENSLAVED: Odyssey to the West,PC,6h29m38s
 2,Potatoman Seeks the Troof,PC,28m49s
-3,Castlevania: Dawn of Sorrow,PC,7h7m47s
+3,Castlevania: Dawn of Sorrow,DS,7h7m47s
 3,Shadow Warrior Classic Redux,PC,6h31m12s
 2,Alan Wake,PC,7h53m33s
 4,Red Dead Redemption II,PC,54h9m41s
@@ -450,3 +450,9 @@
 4,Tom Clancy's Splinter Cell: Chaos Theory,PC,10h36m15s
 2,Psi-Ops: The Mindgate Conspiracy,PC,7h10m30s
 3,Serial Cleaner,PC,3h29m27s
+2,Uncharted,PS3,6h26m22s
+3,Uncharted 2,PS3,8h59m29s
+2,Rex: Another Island,PC,
+4,Burning Chrome,PC,2h16m39s
+4,Bloodstained: Curse of the Moon 2,PC,4h34m2s
+3,Castlevania: Portrait of Ruin,DS,10h26m41s
